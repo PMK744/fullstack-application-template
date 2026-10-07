@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.cjs",
+    "css": "src/global.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@pmkerby/components",
+    "utils": "@pmkerby/components",
+    "ui": "@pmkerby/components",
+    "lib": "@pmkerby/components",
+    "hooks": "@/hooks"
+  }
+}

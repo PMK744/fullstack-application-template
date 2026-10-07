@@ -1,0 +1,8 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.tsx": "${capture}.native.tsx, ${capture}.web.tsx, ${capture}.props.tsx, ${capture}.props.ts",
+    "*.ts": "${capture}.native.ts, ${capture}.web.ts, ${capture}.props.ts",
+  }
+}

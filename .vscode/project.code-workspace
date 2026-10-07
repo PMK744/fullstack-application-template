@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "Applications 🖥️",
+      "path": "../applications"
+    },
+    {
+      "name": "Libraries 🗂️",
+      "path": "../libraries"
+    },
+    {
+      "name": "Packages 📦",
+      "path": "../packages"
+    }
+  ]
+}

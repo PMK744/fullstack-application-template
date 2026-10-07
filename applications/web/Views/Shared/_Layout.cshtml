@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>@ViewData["Title"] - Web</title>
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

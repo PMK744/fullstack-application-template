@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "@pmkerby/monorepo",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "applications/web",
+    "applications/mobile"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  }
+}

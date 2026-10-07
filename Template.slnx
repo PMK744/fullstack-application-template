@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/Applications 🖥️/">
+    <Project Path="applications/api/Template.Api.csproj" />
+    <Project Path="applications/mobile/Template.Mobile.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+    <Project Path="applications/web/Template.Web.csproj" />
+  </Folder>
+
+  <Folder Name="/Libraries 🗂️/">
+    <Project Path="libraries/core/Template.Core.csproj" />
+  </Folder>
+
+  <Folder Name="/Packages 📦/">
+    <Project Path="packages\components\Template.Components.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+    <Project Path="packages\utilities\Template.Utilities.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+</Solution>

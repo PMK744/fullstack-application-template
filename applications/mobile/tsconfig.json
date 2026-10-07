@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "bun",
+      "expo"
+    ],
+    "noEmit": true
+  },
+  "include": [
+    "App.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "nativewind-env.d.ts",
+    ".expo/types/**/*.d.ts",
+    ".expo/**/*.d.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}
