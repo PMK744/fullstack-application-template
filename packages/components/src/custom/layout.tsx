@@ -1,5 +1,14 @@
+import { YStack } from "tamagui";
+
+import { Navbar } from "./navbar";
+
 import type { LayoutProps } from "./layout.props";
 
-export function Layout({ children }: LayoutProps) {
-  return children;
+export function Layout({ children, navbar }: LayoutProps) {
+  return (
+    <YStack flex={1} backgroundColor="$background" minHeight="100vh" width="100%">
+      <Navbar {...navbar} />
+      {children}
+    </YStack>
+  );
 }
