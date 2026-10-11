@@ -16,6 +16,7 @@ wwwroot/*
 # build output
 out
 dist/
+wwwroot/
 *.tgz
 
 # Vite cache

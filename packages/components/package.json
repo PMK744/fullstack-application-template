@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/react": "latest",
     "react": "latest",
-    "react-native": "latest",
+    "react-native": "0.86.3",
     "tamagui": "2.7.7"
   },
   "dependencies": {

@@ -2,7 +2,7 @@ import { Anchor, XStack } from "tamagui";
 
 import type { NavbarProps } from "./navbar.props";
 
-const defaultSections = [{ title: "Home", href: "/" }];
+const defaultSections = [{ title: "Home", href: "/" }, { title: "About", href: "/about" }];
 
 export function Navbar({
   title = "Template",
