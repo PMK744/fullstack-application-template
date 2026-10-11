@@ -6,7 +6,12 @@ import type { LayoutProps } from "./layout.props";
 
 export function Layout({ children, navbar }: LayoutProps) {
   return (
-    <YStack flex={1} backgroundColor="$background" minHeight="100vh" width="100%">
+    <YStack
+      flex={1}
+      backgroundColor="$background"
+      width="100%"
+      $platform-web={{ minHeight: "100vh" }}
+    >
       <Navbar {...navbar} />
       {children}
     </YStack>

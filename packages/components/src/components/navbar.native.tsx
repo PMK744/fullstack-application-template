@@ -1,4 +1,4 @@
-import { Text } from "tamagui";
+import { Text, useTheme } from "tamagui";
 
 import type { NavbarProps } from "./navbar.props";
 
@@ -12,12 +12,17 @@ function routeNameFromHref(href: string) {
 }
 
 export function Navbar({ sections = defaultSections }: NavbarProps) {
+  const theme = useTheme();
+
   return (
-    <NativeTabs>
+    <NativeTabs tintColor={theme.color12.val}>
       {sections.map((section) => (
         <NativeTabs.Trigger
           key={section.href}
           name={routeNameFromHref(section.href)}
+          // Native tab screens don't inherit the layout's background, so
+          // paint each one with the active Tamagui theme.
+          contentStyle={{ backgroundColor: theme.background.val }}
         >
           <NativeTabs.Trigger.Label>
             {section.title}

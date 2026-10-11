@@ -1,14 +1,7 @@
-import { Text, XStack, YStack } from "tamagui";
+import { Button, Text, XStack, YStack } from "tamagui";
 
-import { Button } from "./Button";
+import type { CounterCardProps } from "./counter-card.props";
 
-export type CounterCardProps = {
-  value: number | null;
-  isLoading?: boolean;
-  error?: string;
-  onIncrement: () => void;
-  onReset: () => void;
-};
 
 export function CounterCard({
   value,
@@ -56,14 +49,12 @@ export function CounterCard({
         </Text>
       ) : null}
       <XStack marginTop="$5" justifyContent="center" gap="$3">
-        <Button disabled={isLoading} onPress={onIncrement} size="sm">
+        <Button disabled={isLoading} onPress={onIncrement}>
           Increment
         </Button>
         <Button
           disabled={isLoading}
           onPress={onReset}
-          size="sm"
-          variant="outline"
         >
           Reset
         </Button>

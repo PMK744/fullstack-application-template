@@ -1,14 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { H1, Paragraph, Text, YStack } from "tamagui";
-
-import { Button, CounterCard, Layout } from "@pmkerby/components";
-import { isDefined, isBrowser } from "@pmkerby/utilities";
+import { HomeView } from "@pmkerby/components";
 
 const apiUrl = "http://localhost:5290";
 
 export default function Home() {
-  const message = isDefined("mobile") ? "Mobile application ready" : "";
   const [value, setValue] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -51,52 +46,12 @@ export default function Home() {
   }, [updateCounter]);
 
   return (
-    <Layout>
-      <YStack
-        flex={1}
-        alignItems="center"
-        justifyContent="center"
-        paddingHorizontal="$6"
-      >
-        <Text
-          marginBottom="$3"
-          textAlign="center"
-          fontSize={12}
-          fontWeight="700"
-          textTransform="uppercase"
-          letterSpacing={1.44}
-          color="$blue11"
-        >
-          PMK architecture template
-        </Text>
-        <H1 textAlign="center" fontSize={36} fontWeight="700" color="$color12">
-          {message}
-        </H1>
-        <Paragraph
-          marginTop="$4"
-          maxWidth={576}
-          textAlign="center"
-          fontSize={16}
-          lineHeight={24}
-          color="$color11"
-        >
-          Shared Tamagui components for web and native.
-        </Paragraph>
-        <Button
-          marginTop="$6"
-          onPress={() => alert(`isBrowser: ${isBrowser()}`)}
-        >
-          Continue
-        </Button>
-        <CounterCard
-          error={error}
-          isLoading={isLoading}
-          onIncrement={() => void updateCounter("/increment")}
-          onReset={() => void updateCounter("/reset")}
-          value={value}
-        />
-        <StatusBar style="light" />
-      </YStack>
-    </Layout>
+    <HomeView
+      error={error}
+      isLoading={isLoading}
+      onIncrement={() => void updateCounter("/increment")}
+      onReset={() => void updateCounter("/reset")}
+      value={value}
+    />
   );
 }

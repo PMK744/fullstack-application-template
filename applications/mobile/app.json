@@ -5,7 +5,7 @@
     "scheme": "pmk-mobile",
     "version": "0.0.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
