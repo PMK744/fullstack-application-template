@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { H1, Paragraph, Text, YStack } from "tamagui";
 
 import { Button, CounterCard, Layout } from "@pmkerby/components";
 import { isDefined, isBrowser } from "@pmkerby/utilities";
@@ -52,20 +52,39 @@ export default function Home() {
 
   return (
     <Layout>
-      <View className="flex-1 items-center justify-center px-6">
-        <Text className="mb-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-blue-300">
+      <YStack
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        paddingHorizontal="$6"
+      >
+        <Text
+          marginBottom="$3"
+          textAlign="center"
+          fontSize={12}
+          fontWeight="700"
+          textTransform="uppercase"
+          letterSpacing={1.44}
+          color="$blue11"
+        >
           PMK architecture template
         </Text>
-        <Text className="text-center text-4xl font-bold text-slate-50">
+        <H1 textAlign="center" fontSize={36} fontWeight="700" color="$color12">
           {message}
-        </Text>
-        <Text className="mt-4 max-w-xl text-center text-base leading-6 text-slate-400">
-          Shared shadcn-style components with NativeWind-compatible class names.
-        </Text>
+        </H1>
+        <Paragraph
+          marginTop="$4"
+          maxWidth={576}
+          textAlign="center"
+          fontSize={16}
+          lineHeight={24}
+          color="$color11"
+        >
+          Shared Tamagui components for web and native.
+        </Paragraph>
         <Button
-          className="mt-6"
+          marginTop="$6"
           onPress={() => alert(`isBrowser: ${isBrowser()}`)}
-          textClassName="text-white"
         >
           Continue
         </Button>
@@ -77,7 +96,7 @@ export default function Home() {
           value={value}
         />
         <StatusBar style="light" />
-      </View>
+      </YStack>
     </Layout>
   );
 }

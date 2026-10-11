@@ -11,7 +11,6 @@
     "App.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "nativewind-env.d.ts",
     ".expo/types/**/*.d.ts",
     ".expo/**/*.d.ts",
     ".expo/types/**/*.ts",

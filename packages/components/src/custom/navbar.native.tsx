@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text } from "tamagui";
 
 import type { NavbarProps } from "./navbar.props";
 
@@ -26,7 +26,7 @@ export function Navbar({ sections = defaultSections }: NavbarProps) {
       ))}
 
       <NativeTabs.BottomAccessory >
-        <Text className="text-center text-xs font-bold text-slate-400">
+        <Text textAlign="center" fontSize={12} fontWeight="700" color="$color11">
           Hello, World
         </Text>
       </NativeTabs.BottomAccessory>

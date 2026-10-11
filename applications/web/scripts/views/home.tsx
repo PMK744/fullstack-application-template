@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Button, CounterCard, Layout } from "@pmkerby/components";
+import { Button, CounterCard, Layout, Provider } from "@pmkerby/components";
+import { H1, Paragraph, Text, YStack } from "tamagui";
 
 import { isDefined } from "@pmkerby/utilities";
 
@@ -51,15 +52,38 @@ export function Home() {
 
   return (
     <Layout>
-      <main className="app-shell">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-blue-300">
+      <YStack
+        render="main"
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        padding="$8"
+      >
+        <Text
+          marginBottom="$3"
+          textAlign="center"
+          fontSize={12}
+          fontWeight="700"
+          textTransform="uppercase"
+          letterSpacing={1.44}
+          color="$blue11"
+        >
           PMK architecture template
-        </p>
-        <h1 className="text-4xl font-bold text-slate-50">{message}</h1>
-        <p className="mt-4 max-w-xl text-slate-400">
-          Shared shadcn-style components with NativeWind-compatible class names.
-        </p>
-        <Button className="mx-auto mt-6" onPress={() => undefined}>
+        </Text>
+        <H1 textAlign="center" fontSize={36} fontWeight="700" color="$color12">
+          {message}
+        </H1>
+        <Paragraph
+          marginTop="$4"
+          maxWidth={576}
+          textAlign="center"
+          fontSize={16}
+          lineHeight={24}
+          color="$color11"
+        >
+          Shared Tamagui components for web and native.
+        </Paragraph>
+        <Button marginTop="$6" onPress={() => undefined}>
           Continue
         </Button>
         <CounterCard
@@ -69,7 +93,7 @@ export function Home() {
           onReset={() => void updateCounter("/reset")}
           value={value}
         />
-      </main>
+      </YStack>
     </Layout>
   );
 }
@@ -80,4 +104,8 @@ if (!root) {
   throw new Error("The React root element was not found.");
 }
 
-createRoot(root).render(<Home />);
+createRoot(root).render(
+  <Provider>
+    <Home />
+  </Provider>,
+);

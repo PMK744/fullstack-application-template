@@ -1,12 +1,14 @@
+import { YStack } from "tamagui";
+
 import { Navbar } from "./navbar";
 
 import type { LayoutProps } from "./layout.props";
 
 export function Layout({ children, navbar }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <YStack minHeight="100vh" backgroundColor="$background">
       <Navbar {...navbar} />
       {children}
-    </div>
+    </YStack>
   );
 }

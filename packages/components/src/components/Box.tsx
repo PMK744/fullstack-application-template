@@ -1,34 +1,7 @@
-import type { ComponentType } from "react";
-import { View, type ViewProps } from "react-native";
+import { styled, View, type GetProps } from "tamagui";
 
-type NativeViewProps = ViewProps & { className?: string };
-const NativeView = View as ComponentType<NativeViewProps>;
+export const Box = styled(View, {
+  name: "Box",
+});
 
-export type BoxProps = ViewProps & {
-  className?: string;
-  padding?: number;
-  paddingHorizontal?: number;
-  paddingVertical?: number;
-};
-
-export function Box({
-  padding,
-  paddingHorizontal,
-  paddingVertical,
-  className,
-  style,
-  ...props
-}: BoxProps) {
-  return (
-    <NativeView
-      {...props}
-      className={className}
-      style={[
-        padding !== undefined && { padding },
-        paddingHorizontal !== undefined && { paddingHorizontal },
-        paddingVertical !== undefined && { paddingVertical },
-        style,
-      ]}
-    />
-  );
-}
+export type BoxProps = GetProps<typeof Box>;

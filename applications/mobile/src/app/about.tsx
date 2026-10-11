@@ -1,18 +1,29 @@
-import { StatusBar } from "expo-status-bar";
+import { Text, YStack } from "tamagui";
 
-import { Text, View } from "react-native";
-
-import { Button, CounterCard, Layout } from "@pmkerby/components";
+import { Layout } from "@pmkerby/components";
 
 
 export default function Home() {
   return (
     <Layout>
-      <View className="flex-1 items-center justify-center px-6">
-        <Text className="mb-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-blue-300">
+      <YStack
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        paddingHorizontal="$6"
+      >
+        <Text
+          marginBottom="$3"
+          textAlign="center"
+          fontSize={12}
+          fontWeight="700"
+          textTransform="uppercase"
+          letterSpacing={1.44}
+          color="$blue11"
+        >
           About
         </Text>
-      </View>
+      </YStack>
     </Layout>
   );
 }

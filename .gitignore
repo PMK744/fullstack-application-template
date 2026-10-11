@@ -1,6 +1,7 @@
 # .NET build artifacts
 [Bb]in/
 [Oo]bj/
+.vs/
 *.user
 *.suo
 
@@ -19,6 +20,9 @@ dist/
 
 # Vite cache
 .vite/
+
+# Tamagui compiler cache
+.tamagui/
 
 # code coverage
 coverage

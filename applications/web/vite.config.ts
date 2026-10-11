@@ -13,6 +13,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     extensions: [".web.tsx", ".web.ts", ".tsx", ".ts", ".jsx", ".js"],
+    // Bun's isolated installs give each workspace its own copy; resolve these
+    // from this application so shared packages never load a second instance.
+    dedupe: ["react", "react-dom", "tamagui"],
     alias: {
       "react-native": resolve(rootDirectory, "node_modules/react-native-web"),
       "@pmkerby/components": resolve(

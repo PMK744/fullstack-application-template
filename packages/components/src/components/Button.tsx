@@ -1,48 +1,113 @@
-import type { ComponentType } from "react";
-import { type VariantProps } from "class-variance-authority";
+import type { ReactNode } from "react";
 import {
-  Pressable,
+  createStyledContext,
+  styled,
   Text,
-  type PressableProps,
-  type TextProps,
-} from "react-native";
+  View,
+  withStaticProperties,
+  type GetProps,
+} from "tamagui";
 
-import { cn } from "../lib/utils";
-import { buttonTextVariants, buttonVariants } from "./buttonVariants";
+type ButtonVariant = "default" | "secondary" | "outline" | "ghost";
+type ButtonSize = "default" | "sm" | "lg";
 
-type NativePressableProps = PressableProps & { className?: string };
-type NativeTextProps = TextProps & { className?: string };
-const NativePressable = Pressable as ComponentType<NativePressableProps>;
-const NativeText = Text as ComponentType<NativeTextProps>;
+const ButtonContext = createStyledContext<{
+  variant: ButtonVariant;
+  size: ButtonSize;
+}>({
+  variant: "default",
+  size: "default",
+});
 
-export type ButtonProps = PressableProps &
-  VariantProps<typeof buttonVariants> & {
-    className?: string;
-    textClassName?: string;
-    textProps?: TextProps;
-    children: string;
-  };
+const ButtonFrame = styled(View, {
+  name: "Button",
+  context: ButtonContext,
+  role: "button",
+  render: "button",
+  focusable: true,
+  cursor: "pointer",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  alignSelf: "center",
+  borderRadius: "$3",
+  borderWidth: 1,
+  borderColor: "transparent",
 
-export function Button({
-  children,
-  className,
-  textClassName,
-  textProps,
-  variant,
-  size,
-  ...props
-}: ButtonProps) {
+  variants: {
+    variant: {
+      default: {
+        backgroundColor: "$color12",
+        hoverStyle: { backgroundColor: "$color11" },
+        pressStyle: { backgroundColor: "$color10" },
+      },
+      secondary: {
+        backgroundColor: "$color4",
+        hoverStyle: { backgroundColor: "$color5" },
+        pressStyle: { backgroundColor: "$color6" },
+      },
+      outline: {
+        backgroundColor: "transparent",
+        borderColor: "$borderColor",
+        hoverStyle: { backgroundColor: "$color3" },
+        pressStyle: { backgroundColor: "$color4" },
+      },
+      ghost: {
+        backgroundColor: "transparent",
+        hoverStyle: { backgroundColor: "$color3" },
+        pressStyle: { backgroundColor: "$color4" },
+      },
+    },
+    size: {
+      default: { minHeight: 40, paddingHorizontal: 16, paddingVertical: 8 },
+      sm: { minHeight: 36, paddingHorizontal: 12, paddingVertical: 8 },
+      lg: { minHeight: 44, paddingHorizontal: 24, paddingVertical: 8 },
+    },
+    disabled: {
+      true: { opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" },
+    },
+  } as const,
+
+  defaultVariants: {
+    variant: "default",
+    size: "default",
+  },
+});
+
+const ButtonText = styled(Text, {
+  name: "ButtonText",
+  context: ButtonContext,
+  fontFamily: "$body",
+  fontSize: 14,
+  fontWeight: "500",
+  userSelect: "none",
+
+  variants: {
+    variant: {
+      default: { color: "$color1" },
+      secondary: { color: "$color12" },
+      outline: { color: "$color12" },
+      ghost: { color: "$color12" },
+    },
+  } as const,
+});
+
+export type ButtonProps = Omit<GetProps<typeof ButtonFrame>, "children"> & {
+  children?: ReactNode;
+};
+
+function ButtonComponent({ children, ...props }: ButtonProps) {
   return (
-    <NativePressable
-      {...props}
-      className={cn(buttonVariants({ variant, size }), className)}
-    >
-      <NativeText
-        {...textProps}
-        className={cn(buttonTextVariants({ variant }), textClassName)}
-      >
-        {children}
-      </NativeText>
-    </NativePressable>
+    <ButtonFrame {...props}>
+      {typeof children === "string" || typeof children === "number" ? (
+        <ButtonText>{children}</ButtonText>
+      ) : (
+        children
+      )}
+    </ButtonFrame>
   );
 }
+
+export const Button = withStaticProperties(ButtonComponent, {
+  Text: ButtonText,
+});

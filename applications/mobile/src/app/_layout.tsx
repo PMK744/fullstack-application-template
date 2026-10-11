@@ -1,7 +1,9 @@
-import { Layout } from "@pmkerby/components";
-
-import "../global.css";
+import { Layout, Provider } from "@pmkerby/components";
 
 export default function RootLayout() {
-  return <Layout />;
+  return (
+    <Provider>
+      <Layout />
+    </Provider>
+  );
 }
