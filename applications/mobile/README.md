@@ -2,15 +2,15 @@
 
 Expo application for the mobile client.
 
-Expo Router is enabled with file-based routes under `src/app`. All application source is contained under `src`; Expo's package entrypoint is `expo-router/entry`.
+Expo Router is enabled with file-based routes under `src/views` (configured via the `root` option of the `expo-router` plugin in `app.json`). All application source is contained under `src`; Expo's package entrypoint is `expo-router/entry`.
 
 Add new screens as route files:
 
 ```text
-src/app/index.tsx        /
-src/app/home.tsx         /home
-src/app/settings.tsx     /settings
-src/app/(auth)/login.tsx
+src/views/index.tsx      /
+src/views/home.tsx       /home
+src/views/settings.tsx   /settings
+src/views/(auth)/login.tsx
 ```
 
 Route files use kebab-case. Expo Router's required `_layout.tsx` and `index.tsx` filenames are framework conventions.

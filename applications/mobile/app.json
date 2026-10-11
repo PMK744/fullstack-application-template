@@ -18,7 +18,12 @@
       "typedRoutes": true
     },
     "plugins": [
-      "expo-router"
+      [
+        "expo-router",
+        {
+          "root": "./src/views"
+        }
+      ]
     ]
   }
 }

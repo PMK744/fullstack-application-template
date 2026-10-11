@@ -2,14 +2,26 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] - Web</title>
+    <link rel="stylesheet" href="~/assets/layout.css" asp-append-version="true" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
 <body>
-    <main role="main">
+    @if (IsSectionDefined("Scripts"))
+    {
+        @* React views mount into #root; scripts/views/_layout.tsx renders the page shell. *@
+        <div id="root"></div>
         @RenderBody()
-    </main>
+    }
+    else
+    {
+        <main role="main">
+            @RenderBody()
+        </main>
+    }
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
