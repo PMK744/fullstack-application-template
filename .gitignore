@@ -8,6 +8,9 @@
 # dependencies (bun install)
 node_modules/
 .bun/
+obj/Debug/
+# MSBuild on macOS/Linux creates a literal "obj\Debug" directory (backslash in the name)
+obj\\Debug/
 
 # wwwroot content but not itself
 wwwroot/*
